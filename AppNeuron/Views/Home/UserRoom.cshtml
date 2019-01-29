@@ -1,0 +1,123 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model AppNeuron.Models.User
+@using System.Text.RegularExpressions
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" charset="utf-8" />
+    <title>Личный кабинет</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+</head>
+<body>
+    <div class="green-button-container exit-button" onclick="location.href = '../Home/Logoff'">
+        <div class="green-button">
+            <div class="green-button-1">
+                <div class="green-button-2"></div>
+                <div class="green-button-3">
+                    <div class="green-button-icon-exit"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="green-button-container left-top-button prev-button" onclick="location.href = '../Home/Index'">
+        <div class="green-button">
+            <div class="green-button-1">
+                <div class="green-button-2"></div>
+                <div class="green-button-3">
+                    <div class="green-button-icon-prev"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @if (ViewBag.isDoctor)
+    {
+        <div class="green-button-container right-bottom-button add-button" onclick="location.href = '../Home/AddDoctors'">
+            <div class="green-button">
+                <div class="green-button-1">
+                    <div class="green-button-2"></div>
+                    <div class="green-button-3">
+                        <div class="green-button-icon green-button-icon-add"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="user-room-body">
+        <div class="user-room-container">
+            <div class="user-info">
+                @using (Html.BeginForm("UserRoom", "Home", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <h2>Ваши данные</h2>
+
+                    @Html.ValidationSummary(true)
+
+                    @Html.HiddenFor(m => m.Id)
+
+                    <div class="user-info-group">
+                        @Html.LabelFor(model => model.FirstName, "Имя")
+                        <div class="user-info-input">
+                            @Html.EditorFor(model => model.FirstName)
+                            @Html.ValidationMessageFor(model => model.FirstName)
+                        </div>
+                    </div>
+
+                    <div class="user-info-group">
+                        @Html.LabelFor(model => model.LastName, "Фамилия")
+                        <div class="user-info-input">
+                            @Html.EditorFor(model => model.LastName)
+                            @Html.ValidationMessageFor(model => model.LastName)
+                        </div>
+                    </div>
+
+                    <div class="user-info-group">
+                        @Html.LabelFor(model => model.MiddleName, "Отчество")
+                        <div class="user-info-input">
+                            @Html.EditorFor(model => model.MiddleName)
+                            @Html.ValidationMessageFor(model => model.MiddleName)
+                        </div>
+                    </div>
+
+                    <div class="user-info-group">
+                        @Html.LabelFor(model => model.BirthDateYear, "Год рождения")
+                        <div class="user-info-input">
+                            @Html.EditorFor(model => model.BirthDateYear)
+                            @Html.ValidationMessageFor(model => model.BirthDateYear)
+                        </div>
+                    </div>
+
+                    <div class="user-info-group">
+                        @Html.LabelFor(model => model.Sex, "Пол")
+                        <div class="user-info-input">
+                            @Html.DropDownListFor(m => m.Sex, new SelectList(new List<Tuple<string, bool>>() { Tuple.Create("Мужской", true), Tuple.Create("Женский", false) },
+    "Item2", "Item1"))
+                            @Html.ValidationMessageFor(model => model.Sex)
+                        </div>
+                    </div>
+
+                    <input type="submit" value="Сохранить" name="btn" class="btn btn-primary user-info-btn" />
+                }
+            </div>
+            <div id="user-results"></div>
+        </div>
+    </div>
+</body>
+@Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.js")
+@Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js")
+@Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.js")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+@Scripts.Render("~/Scripts/UserRoom" + (ViewBag.isDoctor ? "Doctor" : "Patient") + ".jsx");
+</html>
+

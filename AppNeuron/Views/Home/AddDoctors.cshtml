@@ -1,0 +1,56 @@
+﻿
+@{
+    Layout = null;
+}
+@using AppNeuron.Models
+
+@model IQueryable<User>
+@using System.Text.RegularExpressions
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Указать врача</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+</head>
+<body>
+    <div class="green-button-container exit-button" onclick="location.href = '../Home/Logoff'">
+        <div class="green-button">
+            <div class="green-button-1">
+                <div class="green-button-2"></div>
+                <div class="green-button-3">
+                    <div class="green-button-icon-exit"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table>
+        <tr><td></td></tr>
+    </table>
+
+    <div class="green-button-container left-top-button prev-button" onclick="location.href = '../Home/UserRoom'">
+        <div class="green-button">
+            <div class="green-button-1">
+                <div class="green-button-2"></div>
+                <div class="green-button-3">
+                    <div class="green-button-icon-prev"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="user-room-body">
+        <div id="add-doctors-container" class="add-doctors-container">
+
+        </div>
+    </div>
+</body>
+@Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.js")
+@Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/Scripts/AddDoctors.jsx")
+</html>

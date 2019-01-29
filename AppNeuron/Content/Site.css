@@ -1,0 +1,918 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-family: Calibri;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.modal-content {
+    height: 40vw;
+    margin-top: 3vw;
+    display: flex;
+    flex-direction: row;
+}
+.modal-dialog{
+    width: 70vw;
+}
+#LeftTaskContainer{
+    flex: 1.3;
+}
+#Сountry {
+    flex: 2;
+    position: relative;
+    border-left: solid;
+    border-color: gray;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.cityNumber {
+    width: 25%;
+    height: 30%;
+    position: absolute;
+    background-color: white;
+    border: solid;
+    border-width: 1px;
+    text-align: center;
+    font-weight: bolder;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.5);
+}
+.cityPhoto {
+    width: 50%;
+    left: 25%;
+    height: 75%;
+    position: absolute;
+    background-color: #d4d2d2;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: -10px 0 10px rgba(0,0,0,0.5);
+}
+.cityContainer {
+    position: absolute;
+    cursor: pointer;
+}
+.cityContainer:hover{
+    border: solid;
+    border-color: red;
+    border-width: 3px;
+}
+.cityName {
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    background-color: white;
+    border: solid;
+    border-width: 1px;
+    text-align: center;
+    font-weight: bolder;
+    box-shadow: -10px 10px 10px rgba(0,0,0,0.5);
+}
+canvas {
+    position: absolute;
+    width: 60%;
+    height: 100%;
+}
+#ControlsContainer{
+    height: 70%;
+    padding: 30px;
+}
+#ButtonContainer{
+    height: 20%;
+    text-align: center;
+}
+#ButtonContainer button{
+    width: 50%;
+}
+#CheckRouteNumber .row{
+    display: flex;
+    justify-content: space-between;
+}
+
+#CheckNames .row {
+    display: flex;
+    justify-content: space-between;
+}
+#ControlsContainer .numbersButton, #ControlsContainer .namesButton {
+    width: 50%;
+    text-align: center;
+    line-height: 230%;
+    font-size: x-large;
+    margin: 10px;
+    border: solid;
+    border-color: dimgray;
+    border-radius: 5px;
+}
+#ControlsContainer .numbersButton:hover, #ControlsContainer .namesButton:hover {
+    border-color: gold;
+    border-width: 7px;
+}
+#LeftTaskContainer #erroreMsg {
+    color: red;
+    text-align: center;
+    height: 10%;
+}
+#CheckImages .row .imageCont{
+    width: 30%;
+}
+.imagesButton {
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 20%;
+    border: solid;
+}
+.imageCont:hover {
+    border: solid;
+    border-color: gold;
+    border-width: 5px;
+}
+#CheckImages .row{
+    display: flex;
+    margin-bottom: 10%;
+    justify-content: space-between;
+}
+#CheckImages {
+    margin-top: 10%;
+}
+#CheckImages button{
+    width: 100%;
+}
+#CheckAll {
+    height: 100%;
+}
+.error{
+    color: red;
+}
+.closeButton {
+    width: 10%;
+    background-image: url("../Images/canselButton.png");
+    background-size:  contain;
+    background-repeat: no-repeat;
+    height: 10%;
+    position: absolute;
+    right: 3%;
+    top: 3%;
+}
+.closeButton:hover{
+    top: 1%;
+    right: 1%;
+    width: 15%;
+    height: 15%;
+}
+body {
+    background-image: url(../Images/first_page1.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+#WorldsMap{
+    width: 910px;
+    height: 520px;
+    background-image: url(../Images/world_map.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: auto;
+    margin-top: 4%;
+    position: relative;
+}
+.CountryInWorldMap {
+    position: absolute;
+    background-image: url("../Images/iconCountry.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    cursor: pointer;
+}
+.CountryInWorldMap:hover{
+    width: 7%;
+    height: 10%;
+}
+.countryNameInMap{
+    position: relative;
+    left: 100%;
+    background-color: white;
+    width: 100px;
+    text-align: center;
+    z-index: 1000000;
+}
+
+#WorldsMap button {
+    position: absolute;
+    top: 85%;
+    left: 5%;
+}
+.photoCity{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+center{
+    display: none;
+}
+.buttonFinishContainer{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 8px;
+}
+.buttonFinishContainer button{
+    margin-right: 5%;
+    width: 70%;
+}
+#Enlarging {
+    position: absolute;
+    background-color: white;
+    width: 40%;
+    z-index: 10000;
+    font-weight: 900;
+    font-size: xx-large;
+    top: 30%;
+    height: 70%;
+    border: solid;
+    box-shadow: 10px -10px 50px rgba(0,0,0,0.5);
+}
+.enlangImage{
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: 100% 100%;
+    height: 70%;
+}
+.enlargName {
+    height: 8%;
+}
+.enlangRoute{
+    height: 8%;
+}
+#enlargButton {
+    position: absolute;
+    top: 95%;
+    box-shadow: 10px -10px 10px rgba(0,0,0,0.5);
+}
+#SpeechItems {
+    position: absolute;
+    left: 89%;
+    width: 10%;
+    z-index: 1000000;
+}
+#SpeechItems button{
+    width: 100%;
+    box-shadow: -10px -10px 10px rgba(0,0,0,0.5);
+}
+.SpeechIcon{
+    width: 100%;
+    height: 100%;
+    background-image: url(../Images/speech.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: center;
+}
+#MainTaskContainerDemo .modal-content {
+    margin-top: 0px;
+    height: 100%;
+    width: 100%;
+}
+#MainTaskContainerDemo .modal-dialog{
+    height: 90%;
+}
+#MainTaskContainerDemo{
+    position: absolute;
+    top: 29%;
+    left: 28%;
+    height: 70%;
+    width: 50%;
+}
+#demoModalBoxContainer .modal {
+    overflow: hidden;
+    overflow-y: hidden;
+}
+.exitButton {
+    box-shadow: -10px 10px 10px rgba(0,0,0,0.5);
+    position: absolute;
+    top: 3%;
+    left: 93%;
+}
+.authorizForm {
+    background: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    left: 10%;
+    width: 80%;
+    height: 60%;
+    top: 25%;
+    padding-left: 10%;
+    text-align: center;
+    text-shadow: 0px 0px 10px rgba(252, 250, 81,1);
+    font-size: x-large;
+}
+.authorizForm input, .authorizForm select{
+    box-shadow: -10px 10px 10px rgba(0,0,0,0.5);
+}
+.authorizForm h4{
+    margin-bottom: 40px;
+    font-size: xx-large;
+    text-align: left;
+}
+.btn {
+    font-size: large;
+}
+.form-group-author{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.form-group-author label{
+    width: 30%;
+    text-align: left;
+}
+.form-button-author{
+   display: flex;
+   justify-content: flex-start;
+   margin-left: 10%;
+   margin-top: 40px;
+}
+.form-button-author input{
+    margin-left: 20px;
+    font-size: x-large;
+}
+.form-input-author {
+    width: 70%;
+    justify-content: flex-start;
+    display: flex;
+}
+.form-input-author input, .form-input-author select{
+    width: 45%;
+    margin-left: 10px;
+}
+.form-input-author select{
+    height: 9%;
+}
+.form-input-author .field-validation-error{
+    position: relative;
+    left: 20px;
+}
+.authorizForm .field-validation-error, .authorizForm .validation-summary-errors {
+    color: red;
+    font-weight: 600;
+}
+#greeting-container{
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 90%;
+    height: 50%;
+    position: absolute;
+    top: 25%;
+    left: 5%;
+    padding-top: 5%;
+}
+#greeting {
+    opacity: 1;
+    font-size:  xx-large;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.scales {
+    height: 24%;
+    display: flex;
+    margin-bottom: 5px;
+}
+.scales div{
+    width: 33%;
+    height: 100%;
+}
+.Scale .buttonPart {
+    border-bottom: solid;
+    border-bottom-color: gray;
+    border-width: 1px;
+}
+.Scale .topPart {
+    border-top: solid;
+    border-top-color: gray;
+    background: radial-gradient(at 90% 10%, #f5f2f2, #c9c9c9);
+    border-width: 1px;
+}
+.Scale div {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    border-left: solid;
+    border-left-color: gray;
+    border-right: solid;
+    border-right-color: gray;
+}
+#CheckAll .resultName, #CheckAll .resultValue {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 5%;
+}
+#CheckAll h2{
+    text-align: center;
+    margin-bottom: 5%;
+}
+.Scale .redPart {
+    background: radial-gradient(at 90% 10%, #fcacac, red);
+}
+.Scale .yellowPart {
+    background: radial-gradient(at 90% 10%, #f9fce3, #fcfc03);
+}
+.Scale .greenPart {
+    background: radial-gradient(at 90% 10%, #c2fcd8, #04d651);
+}
+.user-room-body {
+    position: absolute;
+    top: 0;
+    background-image: url(../Images/first_page1.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.user-room-container{
+    width: 76%;
+    height: 76%;
+    top: 15%;
+    left: 12%;
+    position: absolute;
+    display: flex;
+}
+.user-info {
+    background-color: rgba(255, 255, 255, 0.7);
+    height: 100%;
+    width: 35%;
+    border-right: groove;
+    border-width: 10px;
+    padding-left: 3%;
+    font-size: x-large;
+}
+.user-info h2{
+    margin-bottom: 8%;
+}
+#user-results {
+    background-color: rgba(255, 255, 255, 0.7);
+    height: 100%;
+    width: 65%;
+    font-size: large;
+    overflow-y: scroll;
+}
+.user-info-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.user-info-btn{
+    margin-top: 5%;
+}
+.first-column{
+    padding-left: 5% !important;
+}
+.user-room-button-exit {
+    box-shadow: -10px 10px 10px rgba(0,0,0,0.5);
+    position: absolute;
+    top: 3%;
+    left: 1%;
+}
+.doctor-buttons{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.green-button-container {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    z-index: 100;
+}
+.green-button {
+    background-color: white;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    border-radius: 50%;
+    border: solid;
+    border-width: 5px;
+    border-color: #41e401;
+    box-shadow: 0 0px 15px rgba(54,134,3,1);
+    z-index: 103;
+}
+.green-button-container:hover:before {
+    height: 80px;
+    position: absolute;
+    background: radial-gradient(at 50% 10%, #4ef801, #31c902);
+    border-radius: 10%;
+    border: solid #77e02e;
+    color: white;
+    font-size: xx-large;
+    font-weight: 900;
+    padding-top: 10px;
+}
+.exit-button:hover:before {
+    content: "Выйти";
+    width: 180px;
+    right: 55%;
+    padding-left: 20px;
+}
+.room-button:hover:before {
+    content: "Кабинет";
+    width: 210px;
+    left: 55%;
+    padding-right: 20px;
+    text-align: right;
+}
+.demo-button:hover:before {
+    content: "Демо";
+    width: 170px;
+}
+.next-button:hover:before {
+    content: "Вперед";
+    width: 200px;
+}
+.speech-button-on:hover:before {
+    content: "Включить звук";
+    width: 300px;
+}
+.speech-button-of:hover:before {
+    content: "Выключить звук";
+    width: 330px;
+}
+.tip-button-on:hover:before {
+    content: "Включить подсказку";
+    width: 400px;
+}
+
+.tip-button-of:hover:before {
+    content: "Выключить подсказку";
+    width: 420px;
+}
+.right-bottom-button:hover:before {
+    right: 55%;
+    bottom: 0%;
+    padding-left: 20px;
+}
+.left-bottom-button:hover:before {
+    left: 55%;
+    bottom: 0%;
+    padding-right: 20px;
+    text-align: right;
+}
+.left-bottom-button {
+    left: 1%;
+    bottom: 1%;
+}
+.left-bottom-button-2:hover:before {
+    left: 45%;
+    bottom: 0%;
+    padding-right: 20px;
+    text-align: right;
+}
+
+.left-bottom-button-2 {
+    left: 1%;
+    bottom: 170px;
+}
+.green-button-1 {
+    background: radial-gradient(at 50% 10%, #e0f7cd, #77e02e);
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    position: relative;
+    top: 5%;
+    left: 5%;
+    border: double;
+    border-color: #33c700;
+    border-width: 5px;
+}
+.green-button-2 {
+    width: 100%;
+    height: 50%;
+    background: white;
+    position: relative;
+    top: 50%;
+    clip-path: ellipse(50% 100% at 50% 0%);
+    background: radial-gradient(at 50% 10%, #4ef801, #31c902);
+}
+.green-button-3 {
+    width: 92%;
+    height: 92%;
+    position: relative;
+    top: -46%;
+    left: 4%;
+    border-radius: 50%;
+}
+.green-button-3:hover{
+    box-shadow: 0 0px 25px rgba(54,134,3,1);
+    cursor: pointer;
+}
+.green-button:hover{
+    box-shadow: none;
+}
+.green-button-icon-next {
+    width: 70%;
+    height: 70%;
+    background-color: white;
+    position: relative;
+    top: 15%;
+    left: 15%;
+    clip-path: polygon(0 40%, 65% 40%, 60% 0%, 100% 50%, 60% 100%, 65% 60%, 0% 60%, 0% 50%);
+}
+.green-button-icon-add {
+    width: 70%;
+    height: 70%;
+    background-color: white;
+    position: relative;
+    top: 15%;
+    left: 15%;
+    clip-path: polygon(0 40%, 40% 40%, 40% 0%, 60% 0%, 60% 40%, 100% 40%, 100% 60%, 60% 60%, 60% 100%, 40% 100%, 40% 60%, 0% 60%);
+}
+.add-button:hover:before {
+    content: "Добавить врача";
+    width: 310px;
+}
+.demo-button .green-button {
+    left: 0%;
+}
+.room-button{
+    left: 1%;
+    top: 1%;
+}
+.room-button .green-button {
+    left: 0%;
+}
+.right-bottom-button {
+    right: 1%;
+    bottom: 2%;
+}
+.green-button-icon-room {
+    width: 80%;
+    height: 70%;
+    position: relative;
+    top: 10%;
+    left: 10%;
+}
+#user-names {
+    position: absolute;
+    top: 170px;
+    left: 3%;
+    background-color: #ffad19;
+    padding: 5px 20px 5px 20px;
+    border-radius: 5px;
+    z-index: 100;
+    opacity: 0.9
+}
+.exit-button{
+    top: 1%;
+    right: 1%;
+}
+
+.green-button-icon-exit {
+    width: 70%;
+    height: 70%;
+    background-color: white;
+    position: relative;
+    top: 15%;
+    left: 15%;
+    clip-path: polygon(30% 50%, 10% 20%, 30% 0%, 50% 30%, 70% 0%, 90% 20%, 70% 50%, 90% 80%, 70% 100%, 50% 70%, 30% 100%, 10% 80%);
+}
+.green-button-icon {
+    width: 80%;
+    height: 70%;
+    position: absolute;
+    top: 15%;
+    left: 10%;
+}
+.green-button-icon-speech, .green-button-icon-enlang {
+    width: 70%;
+    height: 70%;
+    background-color: white;
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    clip-path: polygon(0% 10%, 10% 0%, 100% 90%, 90% 100%);
+}
+.left-top-button {
+    left: 1%;
+    top: 1%;
+}
+.left-top-button:hover:before{
+    left: 55%;
+    padding-right: 20px;
+    text-align: right;
+}
+.prev-button:hover:before {
+    content: "Вернуться";
+    width: 230px;
+}
+.green-button-icon-prev {
+    width: 70%;
+    height: 70%;
+    background-color: white;
+    position: relative;
+    top: 15%;
+    left: 15%;
+    clip-path: polygon(0 50%, 40% 0, 35% 40%, 100% 40%, 100% 60%, 35% 60%, 40% 100%);
+}
+.speech-button-on, .speech-button-of, .tip-button-of, .tip-button-on{
+    z-index: 9000
+}
+.modal{
+    overflow-y: hidden;
+}
+.enlang-button-on:hover:before {
+    content: "Увеличивать";
+    width: 270px;
+}
+
+.enlang-button-of:hover:before {
+    content: "Не увеличивать";
+    width: 310px;
+}
+
+.helper:after {
+    background: radial-gradient(at 50% 50%, #F28484, red);
+    position: absolute;
+    content: "";
+    z-index: 1000000;
+    animation-name: pointer-animation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    clip-path: polygon(50% 100%, 100% 50%, 80% 50%, 80% 0%, 20% 0%, 20% 50%, 0% 50%);
+}
+.helper-small::after {
+    width: 140%;
+    left: -20%;
+    bottom: 105%;
+}
+.helper-large:after {
+    width: 70%;
+    left: 10%;
+    bottom: 105%;
+}
+.helper-btn::after {
+    width: 10%;
+    left: 15%;
+    bottom: 21%;
+}
+.helper-gorizontal:after {
+    width: 30%;
+    top: -10%;
+    animation: pointer-animation-gorizontal;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    position: absolute;
+    background: radial-gradient(at 50% 50%, #F28484, red);
+    content: "";
+    z-index: 1000000;
+    height: 100%;
+    clip-path: polygon(0% 50%, 50% 100%, 50% 80%, 100% 80%, 100% 20%, 50% 20%, 50% 0%);
+}
+.helper-gorizontal-right:after {
+    right: -100px;
+    clip-path: polygon(0% 50%, 50% 100%, 50% 80%, 100% 80%, 100% 20%, 50% 20%, 50% 0%);
+}
+.helper-gorizontal-left:after {
+    left: -100px;
+    clip-path: polygon(100% 50%, 50% 100%, 50% 80%, 0% 80%, 0% 20%, 50% 20%, 50% 0%);
+}
+.numbersButton, .namesButton, .imagesButton{
+    position: relative;
+    cursor: pointer;
+}
+
+@keyframes pointer-animation{
+    from{
+        height: 100px;
+    }
+    to{
+        height: 40px;
+    }
+}
+@keyframes pointer-animation-gorizontal {
+    from {
+        width: 40px;
+    }
+
+    to {
+        width: 100px;
+    }
+}
+.infoInTask{
+    font-size: x-large;
+}
+.add-doctors-container {
+    width: 76%;
+    height: 76%;
+    top: 15%;
+    left: 12%;
+    position: absolute;
+    background-color: white;
+    background: rgba(255, 255, 255, 0.6);
+    overflow-y: scroll;
+}
+.search-add-doctors-container, .search-user-room-container {
+    display: flex;
+    background: rgba(78, 248, 1, 0.7);
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    border-radius: 4px;
+}
+.AddDoctors {
+    padding: 20px;
+    font-size: 25px;
+}
+.input-add-doctors, .input-user-room {
+    border-radius: 4px;
+    flex: 2;
+    max-width: 1000px;
+}
+.search-label-add-doctors, .search-label-user-room {
+    flex: 2;
+}
+.button-search-add-doctors, .input-add-doctors, .input-user-room, .button-search-user-room {
+    height: 40px;
+}
+.button-search-add-doctors, .button-search-user-room {
+    flex: 1;
+}
+.result-add-doctors-container td, .result-add-doctors-container th, .result-user-room-container th, .result-user-room-container td{
+    text-align: center;
+}
+.result-user-room-container .tr-users {
+    cursor: pointer;
+    position: relative;
+}
+.result-add-doctors-container th, .result-user-room-container th {
+    background-color: #CBC9C6;
+    height: 50px;
+}
+.result-add-doctors-container table{
+    margin-top: 20px;
+}
+.tr-users:hover {
+    background-color: #3276b1;
+    color: white;
+}
+.header-table-user-room{
+    display: flex;
+    height: 50px;
+}
+.header-table-user-room div{
+    width: 20%;
+    text-align: center;
+    background-color: #CBC9C6;
+    padding-top: 10px;
+}
+.result-user-room-container .tr-users {
+    display: flex;
+    height: 40px;
+}
+.result-user-room-container .tr-users div{
+    width: 20%;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.axis path, .axis line {
+    fill: none;
+    stroke: #333;
+}
+
+.grid-line {
+    stroke: #000;
+    shape-rendering: crispedges;
+    stroke-opacity: 0.2;
+}
+
+.axis text {
+    font: 10px Verdana;
+}
+.graphic-user-room svg{
+    background-color: white;
+}

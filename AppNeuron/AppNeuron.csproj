@@ -1,0 +1,551 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C047F7C2-ED5B-4370-8D34-0E909E6AFCB0}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AppNeuron</RootNamespace>
+    <AssemblyName>AppNeuron</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClearScript, Version=5.4.9.0, Culture=neutral, PublicKeyToken=935d0c957da47c73, processorArchitecture=MSIL">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.V8.2.4.2\lib\net45\ClearScript.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="JavaScriptEngineSwitcher.ChakraCore, Version=2.4.8.0, Culture=neutral, PublicKeyToken=c608b2a8cc9e4472, processorArchitecture=MSIL">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.ChakraCore.2.4.8\lib\net45\JavaScriptEngineSwitcher.ChakraCore.dll</HintPath>
+    </Reference>
+    <Reference Include="JavaScriptEngineSwitcher.Core, Version=2.4.9.0, Culture=neutral, PublicKeyToken=c608b2a8cc9e4472, processorArchitecture=MSIL">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.Core.2.4.9\lib\net45\JavaScriptEngineSwitcher.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="JavaScriptEngineSwitcher.Msie, Version=2.4.9.0, Culture=neutral, PublicKeyToken=c608b2a8cc9e4472, processorArchitecture=MSIL">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.Msie.2.4.9\lib\net45\JavaScriptEngineSwitcher.Msie.dll</HintPath>
+    </Reference>
+    <Reference Include="JavaScriptEngineSwitcher.V8, Version=2.4.2.0, Culture=neutral, PublicKeyToken=c608b2a8cc9e4472, processorArchitecture=MSIL">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.V8.2.4.2\lib\net45\JavaScriptEngineSwitcher.V8.dll</HintPath>
+    </Reference>
+    <Reference Include="JavaScriptEngineSwitcher.Vroom, Version=2.4.0.0, Culture=neutral, PublicKeyToken=c608b2a8cc9e4472, processorArchitecture=MSIL">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.Vroom.2.4.0\lib\net45\JavaScriptEngineSwitcher.Vroom.dll</HintPath>
+    </Reference>
+    <Reference Include="JSPool, Version=3.0.1.0, Culture=neutral, PublicKeyToken=2fc7775f73072640, processorArchitecture=MSIL">
+      <HintPath>..\packages\JSPool.3.0.1\lib\net451\JSPool.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MsieJavaScriptEngine, Version=2.2.2.0, Culture=neutral, PublicKeyToken=a3a2846a37ac0d3e, processorArchitecture=MSIL">
+      <HintPath>..\packages\MsieJavaScriptEngine.2.2.2\lib\net45\MsieJavaScriptEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="React.Core, Version=3.4.0.0, Culture=neutral, PublicKeyToken=9aed67b161f7db78, processorArchitecture=MSIL">
+      <HintPath>..\packages\React.Core.3.4.0\lib\net40\React.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="React.Web, Version=3.4.0.0, Culture=neutral, PublicKeyToken=9aed67b161f7db78, processorArchitecture=MSIL">
+      <HintPath>..\packages\React.Web.3.4.0\lib\net40\React.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="React.Web.Mvc4, Version=3.4.0.0, Culture=neutral, PublicKeyToken=9aed67b161f7db78, processorArchitecture=MSIL">
+      <HintPath>..\packages\React.Web.Mvc4.3.4.0\lib\net40\React.Web.Mvc4.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="VroomJs, Version=1.2.3.0, Culture=neutral, PublicKeyToken=e7c52e67fcb0044f, processorArchitecture=MSIL">
+      <HintPath>..\packages\VroomJs.1.2.3\lib\net45\VroomJs.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\ReactConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AppContext.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\DbContext.cs" />
+    <Compile Include="Models\Doctor.cs" />
+    <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\PatientsResult.cs" />
+    <Compile Include="Models\PatientsResultsJson.cs" />
+    <Compile Include="Models\Register.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserLevel.cs" />
+    <Compile Include="Models\UserRoomSearchData.cs" />
+    <Compile Include="Models\UserSettings.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\ComparisonData.cs" />
+    <Compile Include="Utils\GameData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\AppStory.mdf" />
+    <Content Include="App_Data\AppStory_log.ldf">
+      <DependentUpon>AppStory.mdf</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\Countries\Algeria\Algeria.jpg" />
+    <Content Include="Images\Countries\Algeria\Algeria.png" />
+    <Content Include="Images\Countries\Algeria\Annaba.jpg" />
+    <Content Include="Images\Countries\Algeria\Constantina.jpg" />
+    <Content Include="Images\Countries\Algeria\Oran.jpg" />
+    <Content Include="Images\Countries\Algeria\Setif.jpg" />
+    <Content Include="Images\Countries\Algeria\Tiaret.jpg" />
+    <Content Include="Images\Countries\Algeria\Tlemsen.jpg" />
+    <Content Include="Images\Countries\Aravia\Aravia.png" />
+    <Content Include="Images\Countries\Aravia\Buraida.jpg" />
+    <Content Include="Images\Countries\Aravia\Dammam.jpg" />
+    <Content Include="Images\Countries\Aravia\Dzidda.jpg" />
+    <Content Include="Images\Countries\Aravia\IerRiad.jpg" />
+    <Content Include="Images\Countries\Aravia\Medina.jpg" />
+    <Content Include="Images\Countries\Aravia\Mekka.jpg" />
+    <Content Include="Images\Countries\Aravia\Tabuk.jpg" />
+    <Content Include="Images\Countries\Argentina\Argentina.png" />
+    <Content Include="Images\Countries\Argentina\BuenosAires.jpg" />
+    <Content Include="Images\Countries\Argentina\Chipotelli.jpg" />
+    <Content Include="Images\Countries\Argentina\Cordova.jpg" />
+    <Content Include="Images\Countries\Argentina\Mendosa.jpg" />
+    <Content Include="Images\Countries\Argentina\Neuken.jpg" />
+    <Content Include="Images\Countries\Argentina\Plato.jpg" />
+    <Content Include="Images\Countries\Argentina\Salta.jpg" />
+    <Content Include="Images\Countries\Australia\Australia.png" />
+    <Content Include="Images\Countries\Australia\Brisben.jpg" />
+    <Content Include="Images\Countries\Australia\Makkai.jpg" />
+    <Content Include="Images\Countries\Australia\Melburn.jpg" />
+    <Content Include="Images\Countries\Australia\Newcasl.jpg" />
+    <Content Include="Images\Countries\Australia\Normanton.jpg" />
+    <Content Include="Images\Countries\Australia\Pert.jpg" />
+    <Content Include="Images\Countries\Australia\Sidney.jpg" />
+    <Content Include="Images\Countries\Brasil\Brasil.png" />
+    <Content Include="Images\Countries\Brasil\Brasilia.jpg" />
+    <Content Include="Images\canselButton.png" />
+    <Content Include="Images\Countries\Brasil\Fortaleza.jpg" />
+    <Content Include="Images\Countries\Brasil\Rio.jpg" />
+    <Content Include="Images\Countries\Brasil\Salvador.jpg" />
+    <Content Include="Images\Countries\Canada\Calgary.jpg" />
+    <Content Include="Images\Countries\Canada\Hamilton.jpg" />
+    <Content Include="Images\Countries\Canada\Missisoga.jpg" />
+    <Content Include="Images\Countries\Canada\Montreal.jpg" />
+    <Content Include="Images\Countries\Canada\Ottawa.jpg" />
+    <Content Include="Images\Countries\Canada\Toronto.jpg" />
+    <Content Include="Images\Countries\Canada\Vancouver.jpg" />
+    <Content Include="Images\Countries\Canada\Canada.png" />
+    <Content Include="Images\Countries\China\China.png" />
+    <Content Include="Images\Countries\China\Gonkong.jpg" />
+    <Content Include="Images\Countries\China\Harbin.jpg" />
+    <Content Include="Images\Countries\China\Landshow.jpg" />
+    <Content Include="Images\Countries\China\Lhassa.jpg" />
+    <Content Include="Images\Countries\China\Pekin.jpg" />
+    <Content Include="Images\Countries\China\Shanhai.jpg" />
+    <Content Include="Images\Countries\China\Urumchi.jpg" />
+    <Content Include="Images\Countries\Colombia\Bogota.jpg" />
+    <Content Include="Images\Countries\Colombia\Cartagena.jpg" />
+    <Content Include="Images\Countries\Colombia\Colombia.png" />
+    <Content Include="Images\Countries\Colombia\Cucumber.jpg" />
+    <Content Include="Images\Countries\Colombia\Ibage.jpg" />
+    <Content Include="Images\Countries\Colombia\Kali.jpg" />
+    <Content Include="Images\Countries\Colombia\Medellin.jpg" />
+    <Content Include="Images\Countries\Colombia\SantaMartha.jpg" />
+    <Content Include="Images\Countries\Egypt\Alexandria.jpg" />
+    <Content Include="Images\Countries\Egypt\Egypt.png" />
+    <Content Include="Images\Countries\Egypt\Giza.jpg" />
+    <Content Include="Images\Countries\Egypt\Khair.jpg" />
+    <Content Include="Images\Countries\Egypt\Lucsor.jpg" />
+    <Content Include="Images\Countries\Egypt\PortSaid.jpg" />
+    <Content Include="Images\Countries\Egypt\Suiz.jpg" />
+    <Content Include="Images\Countries\Egypt\Tanta.jpg" />
+    <Content Include="Images\Countries\France\Bordo.jpg" />
+    <Content Include="Images\Countries\France\France.png" />
+    <Content Include="Images\Countries\France\Kannu.jpg" />
+    <Content Include="Images\Countries\France\Lion.jpg" />
+    <Content Include="Images\Countries\France\Marsel.jpg" />
+    <Content Include="Images\Countries\France\Nitza.jpg" />
+    <Content Include="Images\Countries\France\Paris.jpg" />
+    <Content Include="Images\Countries\France\Strasburg.jpg" />
+    <Content Include="Images\Countries\Germany\Berlin.jpg" />
+    <Content Include="Images\Countries\Germany\Bremen.jpg" />
+    <Content Include="Images\Countries\Germany\Duseldorf.jpg" />
+    <Content Include="Images\Countries\Germany\Gamburg.jpg" />
+    <Content Include="Images\Countries\Germany\Germany.png" />
+    <Content Include="Images\Countries\Germany\Keln.jpg" />
+    <Content Include="Images\Countries\Germany\Munhen.jpg" />
+    <Content Include="Images\Countries\Germany\Stuttgart.jpg" />
+    <Content Include="Images\Countries\GreateBritain\Bat.jpg" />
+    <Content Include="Images\Countries\GreateBritain\Edinburg.jpg" />
+    <Content Include="Images\Countries\GreateBritain\GreatBritain.png" />
+    <Content Include="Images\Countries\GreateBritain\Landon.jpg" />
+    <Content Include="Images\Countries\GreateBritain\Liverpule.jpg" />
+    <Content Include="Images\Countries\GreateBritain\Manchester.jpg" />
+    <Content Include="Images\Countries\GreateBritain\Ocford.jpg" />
+    <Content Include="Images\Countries\GreateBritain\Vindsor.jpg" />
+    <Content Include="Images\Countries\Greece\Athnes.jpg" />
+    <Content Include="Images\Countries\Greece\Fivu.jpg" />
+    <Content Include="Images\Countries\Greece\Greece.png" />
+    <Content Include="Images\Countries\Greece\Iraclion.jpg" />
+    <Content Include="Images\Countries\Greece\Patre.jpg" />
+    <Content Include="Images\Countries\Greece\Rodos.jpg" />
+    <Content Include="Images\Countries\Greece\Solonici.jpg" />
+    <Content Include="Images\Countries\Greece\Sparta.jpg" />
+    <Content Include="Images\Countries\India\Agra.jpg" />
+    <Content Include="Images\Countries\India\Bangalor.jpg" />
+    <Content Include="Images\Countries\India\Deli.jpg" />
+    <Content Include="Images\Countries\India\India.png" />
+    <Content Include="Images\Countries\India\Kalkutta.jpg" />
+    <Content Include="Images\Countries\India\Mumbai.jpg" />
+    <Content Include="Images\Countries\India\Patna.jpg" />
+    <Content Include="Images\Countries\India\Varanaci.jpg" />
+    <Content Include="Images\Countries\Ispania\Barselona.jpg" />
+    <Content Include="Images\Countries\Ispania\Billbao.jpg" />
+    <Content Include="Images\Countries\Ispania\Ibisa.jpg" />
+    <Content Include="Images\Countries\Ispania\Ispania.png" />
+    <Content Include="Images\Countries\Ispania\Madrid.jpg" />
+    <Content Include="Images\Countries\Ispania\Salamanca.jpg" />
+    <Content Include="Images\Countries\Ispania\Saloy.jpg" />
+    <Content Include="Images\Countries\Ispania\Sevilia.jpg" />
+    <Content Include="Images\Countries\Italia\Florentia.jpg" />
+    <Content Include="Images\Countries\Italia\Italia.png" />
+    <Content Include="Images\Countries\Italia\Milan.jpg" />
+    <Content Include="Images\Countries\Italia\Neapol.jpg" />
+    <Content Include="Images\Countries\Italia\Piza.jpg" />
+    <Content Include="Images\Countries\Italia\Rim.jpg" />
+    <Content Include="Images\Countries\Italia\Venezia.jpg" />
+    <Content Include="Images\Countries\Italia\Verona.jpg" />
+    <Content Include="Images\Countries\Japan\Hirosima.jpg" />
+    <Content Include="Images\Countries\Japan\Japan.png" />
+    <Content Include="Images\Countries\Japan\Marioka.jpg" />
+    <Content Include="Images\Countries\Japan\Osaka.jpg" />
+    <Content Include="Images\Countries\Japan\Sapporo.jpg" />
+    <Content Include="Images\Countries\Japan\Senday.jpg" />
+    <Content Include="Images\Countries\Japan\Toiama.jpg" />
+    <Content Include="Images\Countries\Japan\Tokio.jpg" />
+    <Content Include="Images\Countries\Kazakhstan\Actubinsk.jpg" />
+    <Content Include="Images\Countries\Kazakhstan\Almatu.jpg" />
+    <Content Include="Images\Countries\Kazakhstan\Astana.jpg" />
+    <Content Include="Images\Countries\Kazakhstan\Karaganda.jpg" />
+    <Content Include="Images\Countries\Kazakhstan\Kazakhstan.png" />
+    <Content Include="Images\Countries\Kazakhstan\Pavlodar.jpg" />
+    <Content Include="Images\Countries\Kazakhstan\Semei.jpg" />
+    <Content Include="Images\Countries\Kazakhstan\Turkestan.jpg" />
+    <Content Include="Images\Countries\Mexico\Chic.jpg" />
+    <Content Include="Images\Countries\Mexico\Guadalajara.jpg" />
+    <Content Include="Images\Countries\Mexico\Mexico.jpg" />
+    <Content Include="Images\Countries\Mexico\Mexico.png" />
+    <Content Include="Images\Countries\Mexico\Monterrey.jpg" />
+    <Content Include="Images\Countries\Mexico\Puebla.jpg" />
+    <Content Include="Images\Countries\Mexico\Tijuana.jpg" />
+    <Content Include="Images\Countries\Mexico\Zapopan.jpg" />
+    <Content Include="Images\Countries\Peru\Arequipa.jpg" />
+    <Content Include="Images\Countries\Peru\Chimbote.jpg" />
+    <Content Include="Images\Countries\Peru\Cucuta.jpg" />
+    <Content Include="Images\Countries\Peru\Cusko.jpg" />
+    <Content Include="Images\Countries\Peru\Ikitos.jpg" />
+    <Content Include="Images\Countries\Peru\Lima.jpg" />
+    <Content Include="Images\Countries\Peru\Peru.png" />
+    <Content Include="Images\Countries\Peru\Takna.jpg" />
+    <Content Include="Images\Countries\Russia\Iaroslavl.jpg" />
+    <Content Include="Images\Countries\Russia\Moskva.jpg" />
+    <Content Include="Images\Countries\Russia\Rostov.jpg" />
+    <Content Include="Images\Countries\Russia\Russia.png" />
+    <Content Include="Images\Countries\Russia\SantPetersburg.jpg" />
+    <Content Include="Images\Countries\Russia\Sochi.jpg" />
+    <Content Include="Images\Countries\Russia\Tula.jpg" />
+    <Content Include="Images\Countries\Russia\Volgograd.jpg" />
+    <Content Include="Images\Countries\Sweden\Falun.jpg" />
+    <Content Include="Images\Countries\Sweden\Geteborg.jpg" />
+    <Content Include="Images\Countries\Sweden\Irebru.jpg" />
+    <Content Include="Images\Countries\Sweden\Sigunna.jpg" />
+    <Content Include="Images\Countries\Sweden\Stockgolm.jpg" />
+    <Content Include="Images\Countries\Sweden\Sweden.png" />
+    <Content Include="Images\Countries\Sweden\Upsala.jpg" />
+    <Content Include="Images\Countries\Sweden\Visbu.jpg" />
+    <Content Include="Images\Countries\Switzerland\Bazel.jpg" />
+    <Content Include="Images\Countries\Switzerland\Bern.jpg" />
+    <Content Include="Images\Countries\Switzerland\Lozanna.jpg" />
+    <Content Include="Images\Countries\Switzerland\SantGalen.jpg" />
+    <Content Include="Images\Countries\Switzerland\Sheneva.jpg" />
+    <Content Include="Images\Countries\Switzerland\Switzerland.png" />
+    <Content Include="Images\Countries\Switzerland\Vintentur.jpg" />
+    <Content Include="Images\Countries\Switzerland\Zurih.jpg" />
+    <Content Include="Images\Countries\UAR\Benoni.jpg" />
+    <Content Include="Images\Countries\UAR\Blumfontain.jpg" />
+    <Content Include="Images\Countries\UAR\Capetoun.jpg" />
+    <Content Include="Images\Countries\UAR\Durban.jpg" />
+    <Content Include="Images\Countries\UAR\Johannesburg.jpg" />
+    <Content Include="Images\Countries\UAR\Port-Elizabet.jpg" />
+    <Content Include="Images\Countries\UAR\Pretoria.jpg" />
+    <Content Include="Images\Countries\UAR\UAR.png" />
+    <Content Include="Images\Countries\USA\Chicago.jpg" />
+    <Content Include="Images\Countries\USA\Detroit.jpg" />
+    <Content Include="Images\Countries\USA\Houston.jpg" />
+    <Content Include="Images\Countries\USA\LosAngeles.jpg" />
+    <Content Include="Images\Countries\USA\NewYork.jpg" />
+    <Content Include="Images\Countries\USA\SanFrancisco.jpg" />
+    <Content Include="Images\Countries\USA\USA.png" />
+    <Content Include="Images\Countries\USA\Washington.jpg" />
+    <Content Include="Images\countryInWorld.jpg" />
+    <Content Include="Images\countryInWorld.svg" />
+    <Content Include="Images\enlanrging.png" />
+    <Content Include="Images\first_page.jpg" />
+    <Content Include="Images\first_page1.jpg" />
+    <Content Include="Images\iconCountry.png" />
+    <Content Include="Images\learning_button.png" />
+    <Content Include="Images\men_avatar.png" />
+    <Content Include="Images\pointer.png" />
+    <Content Include="Images\Countries\Brasil\Recife.jpg" />
+    <Content Include="Images\Countries\Brasil\SanLuise.jpg" />
+    <Content Include="Images\Countries\Brasil\SanPaullo.jpg" />
+    <Content Include="Images\speech.png" />
+    <Content Include="Images\tip.png" />
+    <Content Include="Images\world_map.jpg" />
+    <Content Include="Images\wuman_avatar.png" />
+    <Content Include="Scripts\AddDoctors.jsx" />
+    <Content Include="Scripts\app.jsx" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\comp\CanvasComponent.jsx" />
+    <Content Include="Scripts\comp\CheckAll.jsx" />
+    <Content Include="Scripts\comp\CheckImages.jsx" />
+    <Content Include="Scripts\comp\CheckNames.jsx" />
+    <Content Include="Scripts\comp\CheckRouteNumber.jsx" />
+    <Content Include="Scripts\comp\City.jsx" />
+    <Content Include="Scripts\comp\CountryInWorldMap.jsx" />
+    <Content Include="Scripts\comp\Enlarging.jsx" />
+    <Content Include="Scripts\comp\GreenButton.jsx" />
+    <Content Include="Scripts\comp\InfoContainer.jsx" />
+    <Content Include="Scripts\comp\LeftTaskContainer.jsx" />
+    <Content Include="Scripts\comp\MainTaskContainer.jsx" />
+    <Content Include="Scripts\comp\PhotoModalBox.jsx" />
+    <Content Include="Scripts\comp\SpeechIcon.jsx" />
+    <Content Include="Scripts\comp\WorldsMap.jsx" />
+    <Content Include="Scripts\comp\Country.jsx" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jsx.js" />
+    <Content Include="Scripts\UserRoomPatient.jsx" />
+    <Content Include="Scripts\JSXTransformer.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\UserRoomDoctor.jsx" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Game.cshtml" />
+    <Content Include="Views\Home\UserRoom.cshtml" />
+    <Content Include="Views\Home\AddDoctors.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56729</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:56729/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

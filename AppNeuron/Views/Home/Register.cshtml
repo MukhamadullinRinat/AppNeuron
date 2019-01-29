@@ -1,0 +1,79 @@
+﻿@model AppNeuron.Models.Register
+
+@{
+    ViewBag.Title = "Регистрация";
+    Layout = null;
+}
+
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/jquery")
+
+
+@using (Html.BeginForm("Register", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="authorizForm">
+        <h4>Заполните форму для регистрации</h4>
+        @Html.ValidationSummary(true)
+
+        <div class="form-group-author">
+            @Html.LabelFor(model => model.FirstName, "Имя")
+            <div class="form-input-author">
+                @Html.EditorFor(model => model.FirstName)
+                @Html.ValidationMessageFor(model => model.FirstName)
+            </div>
+        </div>
+
+        <div class="form-group-author">
+            @Html.LabelFor(model => model.LastName, "Фамилия")
+            <div class="form-input-author">
+                @Html.EditorFor(model => model.LastName)
+                @Html.ValidationMessageFor(model => model.LastName)
+            </div>
+        </div>
+
+        <div class="form-group-author">
+            @Html.LabelFor(model => model.MiddleName, "Отчество")
+            <div class="form-input-author">
+                @Html.EditorFor(model => model.MiddleName)
+                @Html.ValidationMessageFor(model => model.MiddleName)
+            </div>
+        </div>
+
+        <div class="form-group-author">
+            @Html.LabelFor(model => model.BirthDateYear, "Год рождения")
+            <div class="form-input-author">
+                @Html.EditorFor(model => model.BirthDateYear)
+                @Html.ValidationMessageFor(model => model.BirthDateYear)
+            </div>
+        </div>
+
+        <div class="form-group-author">
+            @Html.LabelFor(model => model.Sex, "Пол")
+            <div class="form-input-author">
+                @Html.DropDownListFor(m => m.Sex, new SelectList(new List<Tuple<string, bool>>() {Tuple.Create("Мужской", true), Tuple.Create("Женский", false) },
+               "Item2", "Item1"))
+                @Html.ValidationMessageFor(model => model.Sex)
+            </div>
+        </div>
+
+        <div class="form-button-author">
+            <input type="submit" value="Сохранить" name="btn" class="btn btn-default" />
+            <input type="submit" value="Отмена" name="btn" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+<script>
+        /*$(function () {
+            $('body').children().filter('div').last().remove();
+            $('body').children().filter('div').last().remove();
+        })*/
+</script>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+
+

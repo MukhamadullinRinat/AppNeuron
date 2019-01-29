@@ -1,0 +1,67 @@
+﻿@model AppNeuron.Models.Login
+
+@{
+    ViewBag.Title = "Логин";
+    Layout = null;
+}
+
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/jquery")
+
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="authorizForm">
+        <h4>Введите Ваши данные для входа</h4>
+        @Html.ValidationSummary(true)
+
+        <div class="form-group-author">
+            @Html.LabelFor(model => model.FirstName, "Имя")
+            <div class="form-input-author">
+                @Html.EditorFor(model => model.FirstName)
+                @Html.ValidationMessageFor(model => model.FirstName)
+            </div>
+        </div>
+
+        <div class="form-group-author">
+            @Html.LabelFor(model => model.LastName, "Фамилия")
+            <div class="form-input-author">
+                @Html.EditorFor(model => model.LastName)
+                @Html.ValidationMessageFor(model => model.LastName)
+            </div>
+        </div>
+
+        <div class="form-group-author">
+            @Html.LabelFor(model => model.MiddleName, "Отчество")
+            <div class="form-input-author">
+                @Html.EditorFor(model => model.MiddleName)
+                @Html.ValidationMessageFor(model => model.MiddleName)
+            </div>
+        </div>
+
+        <div class="form-group-author">
+            @Html.LabelFor(model => model.BirthDateYear, "Год рождения")
+            <div class="form-input-author">
+                @Html.EditorFor(model => model.BirthDateYear)
+                @Html.ValidationMessageFor(model => model.BirthDateYear)
+            </div>
+        </div>
+
+        <div class="form-button-author">
+            <input type="submit" value="Войти" class="btn btn-default" />
+            <input type="button" onclick="location.href = '../Home/Register'"  value="Зарегистрироваться" class="btn btn-primary" />
+        </div>
+    </div>
+}
+<script>
+        /*$(function () {
+            $('body').children().filter('div').last().remove();
+            $('body').children().filter('div').last().remove();
+        })*/
+</script>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")

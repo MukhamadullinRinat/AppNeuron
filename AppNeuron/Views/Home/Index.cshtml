@@ -1,0 +1,87 @@
+﻿@{
+    Layout = null;
+}
+
+@model AppNeuron.Models.User
+<html>
+<head>
+    <title>Neiron</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="first-page">
+
+    <div class="green-button-container exit-button" onclick="location.href = '../Home/Logoff'">
+        <div class="green-button">
+            <div class="green-button-1">
+                <div class="green-button-2"></div>
+                <div class="green-button-3">
+                    <div class="green-button-icon-exit"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="green-button-container room-button" onclick="location.href = '../Home/UserRoom'">
+        <div class="green-button">
+            <div class="green-button-1">
+                <div class="green-button-2"></div>
+                <div class="green-button-3">
+                    @if (Model.Sex)
+                    {
+                        <img class="green-button-icon-room" src="../Images/men_avatar.png" />
+                    }
+                    else
+                    {
+                        <img class="green-button-icon-room" src="../Images/wuman_avatar.png" />
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="greeting-container">
+        <div id="greeting">
+            <p>Путешествовать всегда интересно. <br />
+            Сейчас Вы сможете побывать в разных уголках земли. <br />
+            Выбор за Вами! <br />
+            Вам предлагается запомнить маршрут путешествия, <br />
+            названия и фотографии городов. <br /></p>
+        </div>
+
+    </div>
+
+    <div class="@("green-button-container right-bottom-button next-button " + 
+        (ViewBag.Helper ? "helper helper-large" : ""))" onclick="location.href = '../Home/Game'">
+        <div class="green-button">
+            <div class="green-button-1">
+                <div class="green-button-2"></div>
+                <div class="green-button-3">
+                    <div class="green-button-icon green-button-icon-next"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /*$(function () {
+            $('body').children().filter('div').last().remove();
+            $('body').children().filter('div').last().remove();
+        })*/
+    </script>
+    @if (ViewBag.Speech)
+    {
+        <script>
+            var text = "Здравствуйте! Для перехода к упражнению нажмите зеленую кнопку в правом нижнем углу экрана!";
+            if (speechSynthesis) {
+                    var utterThis = new SpeechSynthesisUtterance(text);
+                    speechSynthesis.speak(
+                        utterThis
+                    );
+            }
+        </script>
+    }
+</body>
+
+</html>
