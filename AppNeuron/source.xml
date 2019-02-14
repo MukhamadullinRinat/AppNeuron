@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Countries>
+  <Country>
+    <Id>1</Id>
+    <Name>Бразилия</Name>
+    <Top>10</Top>
+    <Left>10</Left>
+    <Src>вапва</Src>
+  </Country>
+</Countries>

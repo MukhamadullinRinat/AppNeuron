@@ -1,4 +1,6 @@
-﻿class CheckNames extends React.Component {
+﻿import React from 'react';
+
+export default class CheckNames extends React.Component {
     constructor(props) {
         super(props);
 

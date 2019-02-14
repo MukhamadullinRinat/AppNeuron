@@ -1,4 +1,9 @@
-﻿class Сountry extends React.Component {
+﻿import React from 'react';
+
+import CanvasComponent from './CanvasComponent.jsx';
+import City from './City.jsx';
+
+export default class Сountry extends React.Component {
     constructor(props) {
         super(props);
 

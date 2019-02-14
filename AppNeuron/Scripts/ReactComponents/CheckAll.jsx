@@ -1,4 +1,8 @@
-﻿class CheckAll extends React.Component {
+﻿import React from 'react';
+
+import Scale from './Scale.jsx';
+
+export default class CheckAll extends React.Component {
     constructor(props) {
         super(props);
         this.state = { patientAnswers: true };
@@ -33,20 +37,6 @@
                     this.updateAllCanvas("rightAnswers", false)} className="btn btn-default">
                     {this.state.patientAnswers ? "Ваши ответы" : "Правильные ответы"}</button>
             </div>
-        </div>
-    }
-}
-
-class Scale extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return <div className="Scale">
-            <div className="topPart" style={{height: (100 - this.props.value) + "%"}}></div>
-            <div className={"buttonPart " + (this.props.value < 30 ? "redPart" : this.props.value < 70 ? "yellowPart" : "greenPart")}
-                style={{height: this.props.value + "%"}}></div>
         </div>
     }
 }

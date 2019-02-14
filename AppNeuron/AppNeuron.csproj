@@ -209,6 +209,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\ComparisonData.cs" />
     <Compile Include="Utils\GameData.cs" />
+    <Compile Include="Utils\Xml\Models\CityRow.cs" />
+    <Compile Include="Utils\Xml\Models\CountryRow.cs" />
+    <Compile Include="Utils\Xml\Models\IRequeredId.cs" />
+    <Compile Include="Utils\Xml\Models\UserRow.cs" />
+    <Compile Include="Utils\Xml\Models\XmlIgnore.cs" />
+    <Compile Include="Utils\Xml\Models\XmlSet.cs" />
+    <Compile Include="Utils\Xml\XmlContext.cs" />
+    <Compile Include="Utils\Xml\XmlHelpers.cs" />
+    <Compile Include="Utils\Xml\XmlNeuronContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\AppStory.mdf" />
@@ -217,6 +226,10 @@
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\File\CountryRow.xml" />
+    <Content Include="Content\File\UserRow.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -436,30 +449,34 @@
     <Content Include="Images\world_map.jpg" />
     <Content Include="Images\wuman_avatar.png" />
     <Content Include="Scripts\AddDoctors.jsx" />
-    <Content Include="Scripts\app.jsx" />
+    <Content Include="Scripts\ReactComponents\app.jsx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\ReactComponents\Scale.jsx" />
+    <Content Include="webpack.config.js" />
+    <Content Include="package-lock.json" />
+    <Content Include="package.json" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\comp\CanvasComponent.jsx" />
-    <Content Include="Scripts\comp\CheckAll.jsx" />
-    <Content Include="Scripts\comp\CheckImages.jsx" />
-    <Content Include="Scripts\comp\CheckNames.jsx" />
-    <Content Include="Scripts\comp\CheckRouteNumber.jsx" />
-    <Content Include="Scripts\comp\City.jsx" />
-    <Content Include="Scripts\comp\CountryInWorldMap.jsx" />
-    <Content Include="Scripts\comp\Enlarging.jsx" />
-    <Content Include="Scripts\comp\GreenButton.jsx" />
-    <Content Include="Scripts\comp\InfoContainer.jsx" />
-    <Content Include="Scripts\comp\LeftTaskContainer.jsx" />
-    <Content Include="Scripts\comp\MainTaskContainer.jsx" />
-    <Content Include="Scripts\comp\PhotoModalBox.jsx" />
-    <Content Include="Scripts\comp\SpeechIcon.jsx" />
-    <Content Include="Scripts\comp\WorldsMap.jsx" />
-    <Content Include="Scripts\comp\Country.jsx" />
+    <Content Include="Scripts\ReactComponents\CanvasComponent.jsx" />
+    <Content Include="Scripts\ReactComponents\CheckAll.jsx" />
+    <Content Include="Scripts\ReactComponents\CheckImages.jsx" />
+    <Content Include="Scripts\ReactComponents\CheckNames.jsx" />
+    <Content Include="Scripts\ReactComponents\CheckRouteNumber.jsx" />
+    <Content Include="Scripts\ReactComponents\City.jsx" />
+    <Content Include="Scripts\ReactComponents\CountryInWorldMap.jsx" />
+    <Content Include="Scripts\ReactComponents\Enlarging.jsx" />
+    <Content Include="Scripts\ReactComponents\GreenButton.jsx" />
+    <Content Include="Scripts\ReactComponents\InfoContainer.jsx" />
+    <Content Include="Scripts\ReactComponents\LeftTaskContainer.jsx" />
+    <Content Include="Scripts\ReactComponents\MainTaskContainer.jsx" />
+    <Content Include="Scripts\ReactComponents\PhotoModalBox.jsx" />
+    <Content Include="Scripts\ReactComponents\SpeechIcon.jsx" />
+    <Content Include="Scripts\ReactComponents\WorldsMap.jsx" />
+    <Content Include="Scripts\ReactComponents\Country.jsx" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -474,7 +491,12 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\UserRoomDoctor.jsx" />
-    <Content Include="Web.config" />
+    <Content Include="source.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -506,6 +528,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scripts\bundles\" />
+    <Folder Include="Scripts\comp\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

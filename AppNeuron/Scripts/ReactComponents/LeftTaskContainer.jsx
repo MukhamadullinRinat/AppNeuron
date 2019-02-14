@@ -1,4 +1,12 @@
-﻿class LeftTaskContainer extends React.Component {
+﻿import React from 'react';
+
+import InfoContainer from './InfoContainer.jsx';
+import CheckRouteNumber from './CheckRouteNumber.jsx';
+import CheckNames from './CheckNames.jsx';
+import CheckImages from './CheckImages.jsx';
+import CheckAll from './CheckAll.jsx';
+
+export default class LeftTaskContainer extends React.Component {
     constructor(props) {
         super(props);
 

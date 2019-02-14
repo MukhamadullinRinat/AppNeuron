@@ -1,4 +1,8 @@
-﻿
+﻿import ReactDOM from 'react-dom';
+import React from 'react';
+
+import WorldsMap from './WorldsMap.jsx';
+
 var updateZIndex = [];
 
 var visibleSpeech = true;

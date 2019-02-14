@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<ArrayOfUserRow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <UserRow>
+    <Id>2</Id>
+    <FirstName>Ринат</FirstName>
+    <LastName>Ринат</LastName>
+    <MiddleName>Ринат</MiddleName>
+    <Sex>true</Sex>
+    <BirthDateYear>1990</BirthDateYear>
+  </UserRow>
+</ArrayOfUserRow>

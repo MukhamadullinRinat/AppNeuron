@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<ArrayOfCountryRow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <CountryRow>
+    <Id>0</Id>
+    <Name>gdfg</Name>
+    <Top>0</Top>
+    <Left>122</Left>
+  </CountryRow>
+  <CountryRow>
+    <Id>1</Id>
+    <Name>gdfg</Name>
+    <Top>0</Top>
+    <Left>122</Left>
+  </CountryRow>
+  <CountryRow>
+    <Id>2</Id>
+    <Name>gdfg</Name>
+    <Top>0</Top>
+    <Left>122</Left>
+  </CountryRow>
+  <CountryRow>
+    <Id>3</Id>
+    <Name>USA</Name>
+    <Top>34</Top>
+    <Left>12</Left>
+    <Src>image</Src>
+  </CountryRow>
+</ArrayOfCountryRow>

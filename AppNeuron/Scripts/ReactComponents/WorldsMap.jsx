@@ -1,9 +1,16 @@
-﻿class WorldsMap extends React.Component {
+﻿import React from 'react';
+import ReactDOM from 'react-dom';
+
+import GreenButton from './GreenButton.jsx';
+import CountryInWorldMap from './CountryInWorldMap.jsx';
+import MainTaskContainer from './MainTaskContainer.jsx';
+
+export default class WorldsMap extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            disabled: true, countries: [], selectedCountry: null, speechOn: speechOn,
+            disabled: true, countries: [], selectedCountry: null, //speechOn: speechOn,
             countryIndexWithHelper: 0, countryIdWithHelper: 0,
             helperZone: "countriesInMap", withHelper: true, enlangVisible: false,
             tasksContext: null
@@ -15,6 +22,11 @@
         this.setSelectedCountry = this.setSelectedCountry.bind(this);
         this.insertRandomRouteNumbers = this.insertRandomRouteNumbers.bind(this);
         this.speechOnOrOff = this.speechOnOrOff.bind(this);
+    }
+
+    componentDidMount() {
+        this.loadData();
+        //speechSynt("Здравствуйте! Выберите страну на карте, для этого нажмите на красный чемоданчик");
     }
 
     disableButton(isBlock) {
@@ -33,10 +45,6 @@
     }
     afterOpenModal() {
         this.setState({ helperZone: "finish" });
-    }
-    componentDidMount() {
-        this.loadData();
-        //speechSynt("Здравствуйте! Выберите страну на карте, для этого нажмите на красный чемоданчик");
     }
     loadData() {
         var xhr = new XMLHttpRequest();
@@ -162,19 +170,19 @@
                     }, this)
                 }
             </div>
-            <GreenButton containerClass="exit-button" action={() => location.href = '../Home/Logoff'} 
+            <GreenButton containerClass="exit-button" action={() => location.href = '../Home/Logoff'}
                 imageClass="green-button-icon-exit" />
-            <GreenButton containerClass={"left-bottom-button " + (this.state.speechOn ? "speech-button-of" : "speech-button-on")} 
+            <GreenButton containerClass={"left-bottom-button " + (this.state.speechOn ? "speech-button-of" : "speech-button-on")}
                 action={() => this.speechOnOrOff()} src1="speech.png" imageClass={this.state.speechOn ? "green-button-icon-speech" : ""} />
             <GreenButton containerClass={this.getNextButtonClasses()} action={() => this.buttonClick()}
                 imageClass="green-button-icon green-button-icon-next" />
             <GreenButton containerClass="left-top-button prev-button" action={() => location.href = '../Home/Index'}
                 imageClass="green-button-icon-prev" />
             {
-                this.state.helperZone === "finish" ? "" : 
+                this.state.helperZone === "finish" ? "" :
                     <GreenButton containerClass={"left-bottom-button-2 " + (this.state.withHelper ? "tip-button-of" : "tip-button-on")}
                         action={() => this.helperOnOrOff()} src1="tip.png" imageClass={!this.state.withHelper ? "" : "green-button-icon-speech"} />
             }
-        </div>
+        </div>;
     }
 }

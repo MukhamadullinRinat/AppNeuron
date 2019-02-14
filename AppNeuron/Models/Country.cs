@@ -5,14 +5,17 @@ using System.Web;
 
 namespace AppNeuron.Models
 {
+    [Serializable]
     public class Country
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public int top { get; set; }
-        public int left { get; set; }
-        public string src { get; set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string Top { get; set; }
+        public string Left { get; set; }
+        public string Src { get; set; }
 
-        public List<City> cites { get; set; }
+        public Country() { }
+
+        //public List<City> cites { get; set; }
     }
 }

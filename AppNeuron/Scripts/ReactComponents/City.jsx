@@ -1,4 +1,6 @@
-﻿class City extends React.Component {
+﻿import React from 'react';
+
+export default class City extends React.Component {
     constructor(props) {
         super(props);
         this.click = this.click.bind(this);

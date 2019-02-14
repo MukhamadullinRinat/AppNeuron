@@ -1,4 +1,6 @@
-﻿class InfoContainer extends React.Component {
+﻿import React from 'react';
+
+export default class InfoContainer extends React.Component {
     render() {
         return <div className="infoInTask">
             Вам необходимо запомнить маршруты, фотографии и названия городов. Как будете готовы, нажмите кнопку "Вперед".

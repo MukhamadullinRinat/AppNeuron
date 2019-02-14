@@ -1,4 +1,10 @@
-﻿class MainTaskContainer extends React.Component {
+﻿import React from 'react';
+
+import GreenButton from './GreenButton.jsx';
+import LeftTaskContainer from './LeftTaskContainer.jsx';
+import Сountry from './Country.jsx';
+
+export default class MainTaskContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {

@@ -8,6 +8,8 @@ using System.Data.Entity;
 using System.Web.Security;
 using AppNeuron.Utils;
 using System.Text.RegularExpressions;
+using AppNeuron.Utils.Xml;
+using AppNeuron.Utils.Xml.Models;
 
 namespace AppNeuron.Controllers
 {
@@ -15,15 +17,22 @@ namespace AppNeuron.Controllers
     {
         Models.DbContext db = new Models.DbContext();
 
+        XmlNeuronContext dbXml = new XmlNeuronContext();
+
         public ActionResult Index()
         {
             if (!HttpContext.User.Identity.IsAuthenticated) return View("Login");
-            var user = db.Users
-                .Find(int.Parse(HttpContext.User.Identity.Name));
-            var settings = db.UserSettings.FirstOrDefault(s => s.UserId == user.Id);
-            ViewBag.Helper = settings.Helper;
-            ViewBag.Speech = settings.Speech;
-            return View(user);
+            var user = dbXml.Users
+                .FirstOrDefault(u => u.Id == int.Parse(HttpContext.User.Identity.Name));
+
+            if(user == null)
+                return View("Login");
+
+            //var settings = db.UserSettings.FirstOrDefault(s => s.UserId == user.Id);
+            ViewBag.Helper = true; //settings.Helper;
+            ViewBag.Speech = true; //settings.Speech;
+
+            return View(new User {Id = user.Id, Sex = user.Sex, MiddleName = user.MiddleName, LastName = user.LastName, FirstName = user.FirstName, BirthDateYear = user.BirthDateYear });
         }
 
         [HttpGet]
@@ -38,7 +47,7 @@ namespace AppNeuron.Controllers
         public ActionResult GetGameData()
         {
             if (!HttpContext.User.Identity.IsAuthenticated)
-                return Json(new GameData() { Error = true}, JsonRequestBehavior.AllowGet);
+                return Json(new GameData() { Error = true }, JsonRequestBehavior.AllowGet);
 
             var countries = db.Countries
                 .Include(country => country.cites)
@@ -47,7 +56,7 @@ namespace AppNeuron.Controllers
             var userId = int.Parse(HttpContext.User.Identity.Name);
             var settings = db.UserSettings
                 .FirstOrDefault(s => s.UserId == userId);
-            if(settings == null)
+            if (settings == null)
             {
                 settings = new UserSetting { Enlarg = true, Helper = true, Speech = true, UserId = userId };
                 db.UserSettings.Add(settings);
@@ -55,40 +64,40 @@ namespace AppNeuron.Controllers
             }
             var level = db.UserLevels.FirstOrDefault(l => l.UserId == userId);
             //временно
-            if(level == null)
-                {
-                    level = new UserLevel { UserId = userId, Level = 3 };
-                    db.UserLevels.Add(level);
-                    db.SaveChanges();
-                }
+            if (level == null)
+            {
+                level = new UserLevel { UserId = userId, Level = 3 };
+                db.UserLevels.Add(level);
+                db.SaveChanges();
+            }
             //временно
             if (level.Level < 7) RemoveCities(countries, level.Level);
-            return Json(new GameData() {Countries = countries, Enlarg = settings.Enlarg, Helper = settings.Helper, Speech = settings.Speech }, 
+            return Json(new GameData() { Countries = countries, Enlarg = settings.Enlarg, Helper = settings.Helper, Speech = settings.Speech },
                 JsonRequestBehavior.AllowGet);
         }
 
-        void RemoveCities(List<Country> countries, int level)
-        {
-            var numbersIn = Enumerable
-                .Range(0, 7)
-                .ToList();
-            while(numbersIn.Count > level)
-            {
-                var random = new Random();
-                var randomNumber = random.Next(0, numbersIn.Count - 1);
-                numbersIn.RemoveAt(randomNumber);
-            }
-            foreach(var country in countries)
-            {
-                var citesOut = new List<City>();
-                var citesIn = country.cites.ToList();
-                for (var i = 0; i < citesIn.Count; i++)
-                    if (!numbersIn.Contains(i)) continue;
-                    else
-                        citesOut.Add(citesIn[i]);
-                country.cites = citesOut;
-            }
-        }
+        //void RemoveCities(List<Country> countries, int level)
+        //{
+        //    var numbersIn = Enumerable
+        //        .Range(0, 7)
+        //        .ToList();
+        //    while(numbersIn.Count > level)
+        //    {
+        //        var random = new Random();
+        //        var randomNumber = random.Next(0, numbersIn.Count - 1);
+        //        numbersIn.RemoveAt(randomNumber);
+        //    }
+        //    foreach(var country in countries)
+        //    {
+        //        var citesOut = new List<City>();
+        //        var citesIn = country.cites.ToList();
+        //        for (var i = 0; i < citesIn.Count; i++)
+        //            if (!numbersIn.Contains(i)) continue;
+        //            else
+        //                citesOut.Add(citesIn[i]);
+        //        country.cites = citesOut;
+        //    }
+        //}
 
         [HttpPost]
         public ActionResult GetDeviationFromAverage(int seconds, int result, int level)
@@ -181,9 +190,11 @@ namespace AppNeuron.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    User user = null;
-                    user = db.Users.FirstOrDefault(u => u.FirstName == model.FirstName && u.LastName == model.LastName && u.MiddleName == model.MiddleName &&
+                    var user = dbXml.Users.FirstOrDefault(u => u.FirstName == model.FirstName && 
+                    u.LastName == model.LastName && 
+                    u.MiddleName == model.MiddleName &&
                     u.BirthDateYear == model.BirthDateYear);
+
                     if (user != null)
                     {
                         FormsAuthentication.SetAuthCookie(user.Id.ToString(), true);
@@ -215,23 +226,19 @@ namespace AppNeuron.Controllers
 
             if (ModelState.IsValid)
             {
-                var user = db.Users.FirstOrDefault(u => u.FirstName == model.FirstName && u.LastName == model.LastName && u.MiddleName == model.MiddleName &&
+                var user = dbXml.Users.FirstOrDefault(u => u.FirstName == model.FirstName && u.LastName == model.LastName && u.MiddleName == model.MiddleName &&
                 u.BirthDateYear == model.BirthDateYear);
 
                 if (user == null)
                 {
-                    db.Users.Add(new User { FirstName = model.FirstName, LastName = model.LastName,
-                    MiddleName = model.MiddleName, BirthDateYear = model.BirthDateYear, Sex = model.Sex});
-                    db.SaveChanges();
+                    user = dbXml.Users.Add(new UserRow {BirthDateYear = model.BirthDateYear, FirstName = model.FirstName, LastName = model.LastName, MiddleName = model.MiddleName, Sex = model.Sex });
 
-                    user = db.Users.Where(u => u.FirstName == model.FirstName && u.LastName == model.LastName && u.MiddleName == model.MiddleName &&
-                u.BirthDateYear == model.BirthDateYear).FirstOrDefault();
                     if (user != null)
                     {
                         FormsAuthentication.SetAuthCookie(user.Id.ToString(), true);
-                        db.UserSettings.Add(new UserSetting { UserId = user.Id });
-                        db.UserLevels.Add(new UserLevel { UserId = user.Id, Level = 3 });
-                        db.SaveChanges();
+                        //db.UserSettings.Add(new UserSetting { UserId = int.Parse(user.Id) });
+                        //db.UserLevels.Add(new UserLevel { UserId = int.Parse(user.Id), Level = 3 });
+                        //db.SaveChanges();
                         return RedirectToAction("Index", "Home");
                     }
                 }
@@ -368,6 +375,13 @@ namespace AppNeuron.Controllers
             var userId = int.Parse(HttpContext.User.Identity.Name);
 
             return GetGraphicsData(userId);
+        }
+
+        [HttpGet]
+        public void Test()
+        {
+            var context = new XmlNeuronContext();
+            //var countries = context.Countries.Where(c => c.Id == "1").ToList();
         }
     }
 

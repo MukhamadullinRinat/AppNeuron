@@ -18,22 +18,11 @@
     @Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/Scripts/comp/GreenButton.jsx")
-    @Scripts.Render("~/Scripts/comp/Country.jsx")
-    @Scripts.Render("~/Scripts/comp/CountryInWorldMap.jsx")
-    @Scripts.Render("~/Scripts/comp/WorldsMap.jsx")
-    @Scripts.Render("~/Scripts/comp/PhotoModalBox.jsx")
-    @Scripts.Render("~/Scripts/comp/MainTaskContainer.jsx")
-    @Scripts.Render("~/Scripts/comp/CanvasComponent.jsx")
-    @Scripts.Render("~/Scripts/comp/City.jsx")
-    @Scripts.Render("~/Scripts/comp/LeftTaskContainer.jsx")
-    @Scripts.Render("~/Scripts/comp/CheckAll.jsx")
-    @Scripts.Render("~/Scripts/comp/CheckImages.jsx")
-    @Scripts.Render("~/Scripts/comp/CheckNames.jsx")
-    @Scripts.Render("~/Scripts/comp/CheckRouteNumber.jsx")
-    @Scripts.Render("~/Scripts/comp/InfoContainer.jsx")
-    @Scripts.Render("~/Scripts/comp/Enlarging.jsx")
-    @Scripts.Render("~/Scripts/comp/SpeechIcon.jsx")
-    @Scripts.Render("~/Scripts/app.jsx")
+
+    @Scripts.Render("~/Scripts/bundles/app.js")
+
+    <script id="__bs_script__">
+        document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.26.3'><\/script>".replace("HOST", location.hostname));
+    </script>
 </body>
 </html>
